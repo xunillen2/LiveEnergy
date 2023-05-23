@@ -1,4 +1,5 @@
-﻿using LEICore.Sensors;
+﻿using LEICore.Consumption;
+using LEICore.Sensors;
 using LEICore.Users;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,18 @@ namespace LEICore.Objects
         public Object GetObject(int id) =>
             FetchObject($"SELECT * FROM Objects WHERE Id = {id} ");
 
+        public int DropObject(int id)
+        {
+            int statuscode;
+            string sql = $"DELETE FROM Objects WHERE Id = {id}";
+            
+            DBReader.OpenConnection();
+            statuscode = DBReader.ExecuteCommand(sql);
+            DBReader.CloseConnection();
+
+            return statuscode;
+        }
+
         /// <summary>
         /// Fetchs Sensor with given sql string.
         /// </summary>
@@ -97,17 +110,14 @@ namespace LEICore.Objects
         {
             Object @object = null;
             SqlDataReader reader;
-
             DBReader.OpenConnection();
             reader = DBReader.GetDataReader(sql);
             while (reader.Read())
             {
                 @object = CreateObject(reader);
             }
-
             reader.Close();
             DBReader.CloseConnection();
-
             return @object;
         }
 
