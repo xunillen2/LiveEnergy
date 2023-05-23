@@ -81,5 +81,11 @@ namespace LEI
                 LblError.Visible = false;
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmObjAdd frmObjAdd = new FrmObjAdd();
+            frmObjAdd.ShowDialog();
+        }
     }
 }

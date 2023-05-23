@@ -31,12 +31,13 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.LblError = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgObjects)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(411, 397);
+            this.btnRemove.Location = new System.Drawing.Point(330, 397);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 0;
@@ -68,15 +69,28 @@
             this.LblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblError.Visible = false;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(411, 397);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FrmObjControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(498, 432);
+            this.ClientSize = new System.Drawing.Size(498, 445);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.LblError);
             this.Controls.Add(this.dvgObjects);
             this.Controls.Add(this.btnRemove);
+            this.MaximumSize = new System.Drawing.Size(514, 484);
+            this.MinimumSize = new System.Drawing.Size(417, 484);
             this.Name = "FrmObjControl";
             this.Text = "Upravljanje Objektima";
             this.Load += new System.EventHandler(this.FrmObjControl_Load);
@@ -91,5 +105,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DataGridView dvgObjects;
         private System.Windows.Forms.Label LblError;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

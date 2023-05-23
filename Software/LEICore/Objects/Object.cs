@@ -17,6 +17,7 @@ namespace LEICore.Objects
         public objectType ObjectType { get; set; }
         public Sensor Sensor { get; set; }
         public User User { get; set; }
+        public int PredictedConsumption { get; set; }
 
         public override string ToString()
         {
