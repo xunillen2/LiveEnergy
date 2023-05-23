@@ -40,13 +40,13 @@ namespace LEICore.Objects
         /// <returns>
         /// returns List<Sensor>
         /// </returns>
-        public List<Object> GetObjects()
+        public List<Object> GetObjects(string sql)
         {
             List<Object> olist = new List<Object>();
             SqlDataReader reader;
 
             DBReader.OpenConnection();
-            reader = DBReader.GetDataReader("SELECT * FROM Objects");
+            reader = DBReader.GetDataReader(sql);
             while (reader.Read())
             {
                 Object sensor = CreateObject(reader);
@@ -65,8 +65,17 @@ namespace LEICore.Objects
         /// <returns>
         /// returns User
         /// </returns>
-        public Object GetObjects(int user_id) =>
-            FetchObject($"SELECT * FROM Objects WHERE UserID = {user_id} ");
+        public List<Object> GetObjects(int user_id) =>
+            GetObjects($"SELECT * FROM Objects WHERE UserID = {user_id} ");
+
+        /// <summary>
+        /// Gets Sensor with specified id
+        /// </summary>
+        /// <returns>
+        /// returns User
+        /// </returns>
+        public List<Object> GetObjects() =>
+            GetObjects($"SELECT * FROM Objects");
 
         /// <summary>
         /// Gets Sensor with specified id
