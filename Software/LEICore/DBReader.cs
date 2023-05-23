@@ -31,7 +31,15 @@ namespace LEICore
         public static int ExecuteCommand(string sqlCommand)
         {
             SqlCommand command = new SqlCommand(sqlCommand, _connection);
-            return command.ExecuteNonQuery();
+
+            try
+            {
+                return command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }
