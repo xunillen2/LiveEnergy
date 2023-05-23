@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization;
 using LEICore.Users;
 
 namespace LEI
@@ -15,8 +16,15 @@ namespace LEI
     {
         public FrmLogin()
         {
+
             InitializeComponent();
-        }
+            UserRepository userRepository = new UserRepository();
+            User user = userRepository.GetUser("mmaric");
+
+                FrmMain frmMain = new FrmMain(user);
+                frmMain.ShowDialog();
+                this.Close();
+            }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -35,7 +43,10 @@ namespace LEI
                 User user = userRepository.GetUser(txtUsername.Text);
                 if (user != null && user.Password == txtPassword.Text)
                 {
-                    MessageBox.Show("Jej!");
+
+                    FrmMain frmMain = new FrmMain(user);
+                    frmMain.ShowDialog();
+                    this.Close();
                 }
                 else {
                     LblError.Visible = true;
