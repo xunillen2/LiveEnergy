@@ -55,6 +55,15 @@ namespace LEI
         {
             Sensor sensor = (Sensor)cmbSensors.SelectedItem;
             User user = (User)cmbUsers.SelectedItem;
+            int predictedConsumption;
+
+            // Try and parse inputed number. If it fails, return from function
+            // and display error message.
+            if (!int.TryParse(txtPredicted.Text, out predictedConsumption))
+            {
+                DisplayError("Unesen broj nije u valjanom formatu");
+                return;
+            }
 
             // Create Object that will be saved to DB.
             LEICore.Objects.Object obj = new LEICore.Objects.Object
@@ -133,6 +142,12 @@ namespace LEI
             {
                 cmbSensors.DataSource = sensors;
             }
+        }
+
+        private void DisplayError (string msg)
+        {
+            LblError.Text = msg;
+            LblError.Visible = true;
         }
     }
 }
