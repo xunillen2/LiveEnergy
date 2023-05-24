@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LEICore.Users.User;
 
 namespace LEICore.Users
 {
@@ -31,7 +32,7 @@ namespace LEICore.Users
             user.Email = reader["Email"].ToString();
             user.Username = reader["Username"].ToString();
             user.Password = reader["Password"].ToString();
-            user.Admin = Convert.ToInt32(reader["IsAdmin"].ToString());
+            user.RoleType = (roleType)Convert.ToInt32(reader["Role"].ToString());
 
 
             return user;

@@ -18,16 +18,30 @@ namespace LEICore.Users
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int Admin { get; set; }
+        internal roleType RoleType { get; set; }
 
         public override string ToString()
         {
             return FirstName + " " + LastName;
         }
 
+        /// <summary>
+        /// Returns protecte RoleType Propertie
+        /// </summary>
+        /// <returns></returns>
+        public roleType GetRole() { 
+            return RoleType;
+        }
+
         public bool IsAdmin() { 
-            if (Admin <= 0) return false;
-            return true;
+            if (RoleType == roleType.Admin) return true;
+            return false;
+        }
+
+        public enum roleType { 
+            Admin,
+            ObjectManager,
+            LandLord
         }
 
     }

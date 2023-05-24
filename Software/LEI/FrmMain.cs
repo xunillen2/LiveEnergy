@@ -143,8 +143,11 @@ namespace LEI
         }
 
         void SetElementStyles() {
-            dvgObjects.Columns["ObjectType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dvgObjects.EnableHeadersVisualStyles = true;
+            if (dvgObjects.DataSource != null)
+            {
+                dvgObjects.Columns["ObjectType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dvgObjects.EnableHeadersVisualStyles = true;
+            }
         }
 
         private void RealodTimerEventObject 
