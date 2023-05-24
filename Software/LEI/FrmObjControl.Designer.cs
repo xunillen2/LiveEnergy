@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmObjControl));
             this.btnRemove = new System.Windows.Forms.Button();
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.LblError = new System.Windows.Forms.Label();
@@ -106,6 +107,7 @@
             this.Controls.Add(this.LblError);
             this.Controls.Add(this.dvgObjects);
             this.Controls.Add(this.btnRemove);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(2000, 484);
             this.MinimumSize = new System.Drawing.Size(417, 484);
             this.Name = "FrmObjControl";
