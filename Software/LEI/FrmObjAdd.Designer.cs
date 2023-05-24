@@ -48,6 +48,7 @@
             this.cmbSensors = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.objectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.LblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.objectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,12 +231,28 @@
             // 
             this.objectBindingSource.DataSource = typeof(LEICore.Objects.Object);
             // 
+            // LblError
+            // 
+            this.LblError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblError.AutoSize = true;
+            this.LblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LblError.ForeColor = System.Drawing.Color.Red;
+            this.LblError.Location = new System.Drawing.Point(19, 331);
+            this.LblError.Name = "LblError";
+            this.LblError.Size = new System.Drawing.Size(118, 15);
+            this.LblError.TabIndex = 22;
+            this.LblError.Text = "Nije Odabran Objekt";
+            this.LblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblError.Visible = false;
+            // 
             // FrmObjAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(433, 501);
+            this.Controls.Add(this.LblError);
             this.Controls.Add(this.cmbSensors);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbUsers);
@@ -284,5 +301,6 @@
         private System.Windows.Forms.ComboBox cmbUsers;
         private System.Windows.Forms.ComboBox cmbSensors;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LblError;
     }
 }
