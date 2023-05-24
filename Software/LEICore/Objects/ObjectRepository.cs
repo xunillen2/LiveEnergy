@@ -27,6 +27,7 @@ namespace LEICore.Objects
             @object.Id = Convert.ToInt32(reader["Id"].ToString());
             @object.Name = reader["Name"].ToString();
             @object.City = reader["City"].ToString();
+            @object.Street = reader["Street"].ToString();
             @object.ObjectType = (objectType) Convert.ToInt32(reader["ObjectType"].ToString());
             @object.PredictedConsumption = Convert.ToInt32(reader["PredictedConsumption"].ToString());
             @object.Sensor = sensorRepository.GetSensor(Convert.ToInt32(reader["SensorID"].ToString()));
