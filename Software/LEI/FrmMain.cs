@@ -16,7 +16,7 @@ using LEICore.Users;
 
 namespace LEI
 {
-    public partial class FrmMain : Form
+    public partial class LiveEnergy : Form
     {
         User user = new User();
         Chart chartWater = new Chart();
@@ -24,7 +24,7 @@ namespace LEI
         static Timer reloadTimer = new Timer();
 
 
-        public FrmMain(User user)
+        public LiveEnergy(User user)
         {
             this.user = user;
             InitializeComponent();
@@ -41,9 +41,11 @@ namespace LEI
 
             SetUsername();
             LoadData();
+            SetElementStyles();
+
+            // Setup timer
             reloadTimer.Tick += new EventHandler(RealodTimerEventObject);
 
-            // Sets the timer interval to 15 seconds.
             reloadTimer.Interval = 15000;
             reloadTimer.Start();
         }
@@ -108,13 +110,18 @@ namespace LEI
                 }
             }
 
-            lblWaterConsumption.Text = waterconsumption.ToString() + " kWh";
+            lblWaterConsumption.Text = waterconsumption.ToString() + " L/s";
             lblGasConsumption.Text = gasconsumption.ToString() + " L/s";
-            lblElectrConsumption.Text = electryconsumption.ToString() + "";
+            lblElectrConsumption.Text = electryconsumption.ToString() + "kWh";
         }
 
         void SetUsername() { 
             lblUsername.Text = user.FirstName + " " + user.LastName;
+        }
+
+        void SetElementStyles() {
+            dvgObjects.Columns["ObjectType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dvgObjects.EnableHeadersVisualStyles = true;
         }
 
         private void RealodTimerEventObject 
@@ -138,5 +145,6 @@ namespace LEI
             FrmObjInfo frminfo = new FrmObjInfo(objlist[e.RowIndex]);
             frminfo.ShowDialog();            
         }
+
     }
 }

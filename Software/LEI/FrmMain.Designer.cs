@@ -1,6 +1,6 @@
 ﻿namespace LEI
 {
-    partial class FrmMain
+    partial class LiveEnergy
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.korisnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +70,7 @@
             this.objectToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(853, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(854, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -122,10 +125,37 @@
             // dvgObjects
             // 
             this.dvgObjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgObjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgObjects.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dvgObjects.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.dvgObjects.Location = new System.Drawing.Point(0, 394);
             this.dvgObjects.Name = "dvgObjects";
-            this.dvgObjects.Size = new System.Drawing.Size(853, 381);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgObjects.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dvgObjects.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dvgObjects.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dvgObjects.Size = new System.Drawing.Size(854, 382);
             this.dvgObjects.TabIndex = 4;
             this.dvgObjects.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgObjects_CellContentDoubleClick);
             // 
@@ -168,9 +198,9 @@
             this.lblElectrConsumption.ForeColor = System.Drawing.Color.White;
             this.lblElectrConsumption.Location = new System.Drawing.Point(510, 97);
             this.lblElectrConsumption.Name = "lblElectrConsumption";
-            this.lblElectrConsumption.Size = new System.Drawing.Size(140, 39);
+            this.lblElectrConsumption.Size = new System.Drawing.Size(172, 39);
             this.lblElectrConsumption.TabIndex = 9;
-            this.lblElectrConsumption.Text = "13 kWh";
+            this.lblElectrConsumption.Text = "NaN kWh";
             // 
             // lblWaterConsumption
             // 
@@ -179,9 +209,9 @@
             this.lblWaterConsumption.ForeColor = System.Drawing.Color.White;
             this.lblWaterConsumption.Location = new System.Drawing.Point(510, 217);
             this.lblWaterConsumption.Name = "lblWaterConsumption";
-            this.lblWaterConsumption.Size = new System.Drawing.Size(140, 39);
+            this.lblWaterConsumption.Size = new System.Drawing.Size(182, 39);
             this.lblWaterConsumption.TabIndex = 11;
-            this.lblWaterConsumption.Text = "13 kWh";
+            this.lblWaterConsumption.Text = "NaN  kWh";
             // 
             // label7
             // 
@@ -201,9 +231,9 @@
             this.lblGasConsumption.ForeColor = System.Drawing.Color.White;
             this.lblGasConsumption.Location = new System.Drawing.Point(510, 324);
             this.lblGasConsumption.Name = "lblGasConsumption";
-            this.lblGasConsumption.Size = new System.Drawing.Size(140, 39);
+            this.lblGasConsumption.Size = new System.Drawing.Size(172, 39);
             this.lblGasConsumption.TabIndex = 13;
-            this.lblGasConsumption.Text = "13 kWh";
+            this.lblGasConsumption.Text = "NaN kWh";
             // 
             // label9
             // 
@@ -248,12 +278,12 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmMain
+            // LiveEnergy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(853, 778);
+            this.ClientSize = new System.Drawing.Size(854, 775);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblGasConsumption);
@@ -269,7 +299,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FrmMain";
+            this.MaximumSize = new System.Drawing.Size(870, 814);
+            this.Name = "LiveEnergy";
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
