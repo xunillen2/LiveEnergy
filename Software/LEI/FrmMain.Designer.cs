@@ -46,10 +46,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblGasConsumption = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgObjects)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,6 +216,28 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "Generalna sveukupna potrošnja plina (po min):";
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.White;
+            this.lblUsername.ForeColor = System.Drawing.Color.Black;
+            this.lblUsername.Location = new System.Drawing.Point(714, 6);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(83, 13);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "{Korisnicko ime}";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackgroundImage = global::LEI.Properties.Resources.user_logo;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(813, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 23);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::LEI.Properties.Resources.ok_status;
@@ -224,24 +248,14 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(757, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "{Korisnicko ime}";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(853, 778);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblGasConsumption);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblWaterConsumption);
@@ -261,6 +275,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgObjects)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -286,6 +301,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblGasConsumption;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

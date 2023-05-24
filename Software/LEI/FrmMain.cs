@@ -39,6 +39,7 @@ namespace LEI
                 btnSensors.Enabled= false;
             }
 
+            SetUsername();
             LoadData();
             reloadTimer.Tick += new EventHandler(RealodTimerEventObject);
 
@@ -110,6 +111,10 @@ namespace LEI
             lblWaterConsumption.Text = waterconsumption.ToString() + " kWh";
             lblGasConsumption.Text = gasconsumption.ToString() + " L/s";
             lblElectrConsumption.Text = electryconsumption.ToString() + "";
+        }
+
+        void SetUsername() { 
+            lblUsername.Text = user.FirstName + " " + user.LastName;
         }
 
         private void RealodTimerEventObject 
