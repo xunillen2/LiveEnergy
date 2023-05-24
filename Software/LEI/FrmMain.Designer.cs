@@ -148,7 +148,9 @@
             this.dvgObjects.DefaultCellStyle = dataGridViewCellStyle3;
             this.dvgObjects.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.dvgObjects.Location = new System.Drawing.Point(0, 394);
+            this.dvgObjects.MultiSelect = false;
             this.dvgObjects.Name = "dvgObjects";
+            this.dvgObjects.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -160,6 +162,7 @@
             this.dvgObjects.RowHeadersVisible = false;
             this.dvgObjects.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.dvgObjects.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dvgObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgObjects.Size = new System.Drawing.Size(854, 382);
             this.dvgObjects.TabIndex = 4;
             this.dvgObjects.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgObjects_CellContentDoubleClick);

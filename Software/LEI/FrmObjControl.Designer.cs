@@ -68,8 +68,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgObjects.DefaultCellStyle = dataGridViewCellStyle1;
             this.dvgObjects.Location = new System.Drawing.Point(12, 39);
+            this.dvgObjects.MultiSelect = false;
             this.dvgObjects.Name = "dvgObjects";
+            this.dvgObjects.ReadOnly = true;
             this.dvgObjects.RowHeadersVisible = false;
+            this.dvgObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgObjects.Size = new System.Drawing.Size(1062, 352);
             this.dvgObjects.TabIndex = 1;
             this.dvgObjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgObjects_CellContentClick);

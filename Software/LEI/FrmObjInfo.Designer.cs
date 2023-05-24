@@ -67,7 +67,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(93, 200);
+            this.label3.Location = new System.Drawing.Point(103, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 16);
             this.label3.TabIndex = 10;
@@ -77,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(120, 8);
+            this.label2.Location = new System.Drawing.Point(128, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 9;
@@ -87,9 +87,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::LEI.Properties.Resources.ok_status;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 173);
+            this.pictureBox1.Size = new System.Drawing.Size(256, 173);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -191,7 +191,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgWater.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgWater.Location = new System.Drawing.Point(0, 0);
+            this.dvgWater.MultiSelect = false;
             this.dvgWater.Name = "dvgWater";
+            this.dvgWater.ReadOnly = true;
+            this.dvgWater.RowHeadersVisible = false;
             this.dvgWater.Size = new System.Drawing.Size(770, 345);
             this.dvgWater.TabIndex = 18;
             // 
@@ -241,7 +244,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgGas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dvgGas.Location = new System.Drawing.Point(0, 0);
+            this.dvgGas.MultiSelect = false;
             this.dvgGas.Name = "dvgGas";
+            this.dvgGas.ReadOnly = true;
+            this.dvgGas.RowHeadersVisible = false;
             this.dvgGas.Size = new System.Drawing.Size(770, 345);
             this.dvgGas.TabIndex = 19;
             // 
@@ -269,7 +275,10 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgElectric.DefaultCellStyle = dataGridViewCellStyle4;
             this.dvgElectric.Location = new System.Drawing.Point(0, 0);
+            this.dvgElectric.MultiSelect = false;
             this.dvgElectric.Name = "dvgElectric";
+            this.dvgElectric.ReadOnly = true;
+            this.dvgElectric.RowHeadersVisible = false;
             this.dvgElectric.Size = new System.Drawing.Size(770, 345);
             this.dvgElectric.TabIndex = 19;
             // 
