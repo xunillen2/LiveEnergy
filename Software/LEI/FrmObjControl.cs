@@ -13,6 +13,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace LEI
 {
+    /// <summary>
+    /// Displays form For Managing Objects.
+    /// </summary>
     public partial class FrmObjControl : Form
     {
         User user = new User();
@@ -33,13 +36,17 @@ namespace LEI
             List<LEICore.Objects.Object> objlist = new List<LEICore.Objects.Object>();
             ObjectRepository objectRepository = new ObjectRepository();
 
-            if(!user.IsAdmin())
+            // If user is admin, get all objects.
+            if (!user.IsAdmin())
                 objlist = objectRepository.GetObjects(user.Id);
             else
                 objlist = objectRepository.GetObjects();
 
             if (objlist != null && objlist.Count > 0)
             {
+                /* Sets Columns idexes, header text and hides
+                * Columns that are not needed in this Form.
+                */
                 dvgObjects.DataSource = objlist;
                 dvgObjects.Columns["Id"].DisplayIndex = 0;
                 dvgObjects.Columns["Name"].DisplayIndex = 1;
