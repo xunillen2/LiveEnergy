@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,19 @@ namespace LEI
 
         private void ObjInfo_Load(object sender, EventArgs e)
         {
+            LoadLabels();
+            LoadDvg();
+        }
+
+        /* Funkcije za postavljanje user interfacea */
+        private void LoadLabels() {
             lblObjName.Text = obj.Name;
             lblCity.Text = obj.City;
             lblStreet.Text = obj.Street;
             lblOwner.Text = obj.User.FirstName + " " + obj.User.LastName;
-
-            consumptionDataWater = 
+        }
+        private void LoadDvg() {
+            consumptionDataWater =
                 consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Water);
             consumptionDataGas =
                 consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Gas);
@@ -42,67 +50,55 @@ namespace LEI
             dvgWater.DataSource = consumptionDataWater;
             dvgGas.DataSource = consumptionDataGas;
             dvgElectric.DataSource = consumptionDataElectric;
-
+            SetDvgLayout();
+        }
+        private void SetDvgLayout() {
 
             /* Postavljanje izgleda tablice.
              Sakrimo nepotrebne stupce i postavljamo pravilan tekst stupaca */
-            dvgWater.Columns[0].Visible = dvgGas.Columns[0].Visible = 
-                dvgElectric.Columns[0].Visible = false;
-            dvgWater.Columns[1].Visible = dvgGas.Columns[1].Visible =
-                dvgElectric.Columns[1].Visible = false;
-            dvgWater.Columns[3].Visible = dvgGas.Columns[3].Visible =
-                dvgElectric.Columns[3].Visible = false;
+            dvgWater.Columns [0].Visible = dvgGas.Columns [0].Visible = 
+                dvgElectric.Columns [0].Visible = false;
+            dvgWater.Columns [1].Visible = dvgGas.Columns [1].Visible =
+                dvgElectric.Columns [1].Visible = false;
+            dvgWater.Columns [3].Visible = dvgGas.Columns [3].Visible =
+                dvgElectric.Columns [3].Visible = false;
 
-            dvgWater.Columns[2].HeaderText = "Vrijednost potršnje (L)";
-            dvgElectric.Columns[2].HeaderText = "Vrijednost potršnje (kWh)";
-            dvgGas.Columns[2].HeaderText = "Vrijednost potršnje (L)";
-            dvgWater.Columns[4].HeaderText = dvgGas.Columns[4].HeaderText =
-                dvgElectric.Columns[4].HeaderText = "Datum/Vrijeme";
-            /*
-            consumptionDataList = consumptionRepository.GetConsumptionsByObject(obj.Id);
-
-            if (consumptionDataList.Count != 0)
-            {
-                dvgWater.Columns.Add("ConsumptionValue", "Vrijednost");
-                dvgWater.Columns.Add("Date", "Datum");
-                dvgElectric.AutoGenerateColumns = true;
-                foreach (ConsumptionData cdata in consumptionDataList)
-                {
-                    if (cdata.ConsumptionType == ConsumptionData.consumptionType.Water)
-                        dvgWater.Rows.Add(cdata);
-                    else if (cdata.ConsumptionType == ConsumptionData.consumptionType.Gas)
-                        dvgGas.Rows.Add(cdata);
-                    else if (cdata.ConsumptionType == ConsumptionData.consumptionType.Electricity)
-                        dvgElectric.Rows.Add(cdata);
-                }
-            }*/
+            dvgWater.Columns [2].HeaderText = "Vrijednost potršnje (L)";
+            dvgElectric.Columns [2].HeaderText = "Vrijednost potršnje (kWh)";
+            dvgGas.Columns [2].HeaderText = "Vrijednost potršnje (L)";
+            dvgWater.Columns [4].HeaderText = dvgGas.Columns [4].HeaderText =
+                dvgElectric.Columns [4].HeaderText = "Datum/Vrijeme";
         }
 
         private void dateFilter_ValueChanged(object sender, EventArgs e)
         {
-            //           List<ConsumptionData> consumptionDataWaterFiltered = new List<ConsumptionData>();
-            //         List<ConsumptionData> consumptionDataGasFiltered = new List<ConsumptionData>();
-            //       List<ConsumptionData> consumptionDataElectricFiltered = new List<ConsumptionData>();
+            List<ConsumptionData> consumptionDataWaterFiltered = new List<ConsumptionData>();
+            List<ConsumptionData> consumptionDataGasFiltered = new List<ConsumptionData>();
+            List<ConsumptionData> consumptionDataElectricFiltered = new List<ConsumptionData>();
 
             // Filtar za datum vode
             dvgWater.DataSource = null;
             foreach (ConsumptionData cdata in consumptionDataWater)
             {
-                if (cdata.Date == dateFilter.Value)
-                    dvgWater.Rows.Add(cdata);
+                Debug.WriteLine(cdata.Date.Date.ToString() + " " + dateFilter.Value.Date.ToString());
+                if (cdata.Date.Date == dateFilter.Value.Date)
+                    consumptionDataWaterFiltered.Add(cdata);
             }
-            dvgGas.DataSource = null;
             foreach (ConsumptionData cdata in consumptionDataGas)
             {
-                if (cdata.Date == dateFilter.Value)
-                    dvgGas.Rows.Add(cdata);
+                if (cdata.Date.Date == dateFilter.Value.Date)
+                    consumptionDataGasFiltered.Add(cdata);
             }
-            dvgElectric.DataSource = null;
             foreach (ConsumptionData cdata in consumptionDataElectric)
             {
-                if (cdata.Date == dateFilter.Value)
-                    dvgElectric.Rows.Add(cdata);
+                if (cdata.Date.Date == dateFilter.Value.Date)
+                    consumptionDataElectricFiltered.Add(cdata);
             }
+
+            dvgWater.DataSource = consumptionDataWaterFiltered;
+            dvgGas.DataSource = consumptionDataGasFiltered;
+            dvgElectric.DataSource = consumptionDataElectricFiltered;
+            SetDvgLayout();
         }
 
         private void btnRemoveFilter_Click(object sender, EventArgs e)
