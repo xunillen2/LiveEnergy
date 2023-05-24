@@ -32,6 +32,13 @@ namespace LEI
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            // Disable non admin stuff
+            if (!user.IsAdmin())
+            {
+                btnAddRemoveObj.Enabled = false;
+                btnSensors.Enabled= false;
+            }
+
             LoadData();
             reloadTimer.Tick += new EventHandler(RealodTimerEventObject);
 
@@ -48,7 +55,10 @@ namespace LEI
         private void LoadDvgObjects() {
             ObjectRepository objectRepository = new ObjectRepository();
 
-            objlist = objectRepository.GetObjects(user.Id);
+            if (!user.IsAdmin())
+                objlist = objectRepository.GetObjects(user.Id);
+            else
+                objlist = objectRepository.GetObjects();
 
             if (objlist != null && objlist.Count > 0)
             {

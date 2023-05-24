@@ -21,7 +21,7 @@ namespace LEI
 
             InitializeComponent();
             UserRepository userRepository = new UserRepository();
-            User = userRepository.GetUser("mmaric");
+            User = userRepository.GetUser("admin");
 
                 FrmMain frmMain = new FrmMain(User);
                 frmMain.ShowDialog();

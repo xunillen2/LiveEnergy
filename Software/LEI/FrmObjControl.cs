@@ -33,7 +33,10 @@ namespace LEI
             List<LEICore.Objects.Object> objlist = new List<LEICore.Objects.Object>();
             ObjectRepository objectRepository = new ObjectRepository();
 
-            objlist = objectRepository.GetObjects(user.Id);
+            if(!user.IsAdmin())
+                objlist = objectRepository.GetObjects(user.Id);
+            else
+                objlist = objectRepository.GetObjects();
 
             if (objlist != null && objlist.Count > 0)
             {
@@ -43,14 +46,15 @@ namespace LEI
                 dvgObjects.Columns["City"].DisplayIndex = 2;
                 dvgObjects.Columns["Street"].DisplayIndex = 3;
                 dvgObjects.Columns["ObjectType"].DisplayIndex = 4;
+
+                dvgObjects.Columns[1].HeaderText = "Ime";
+                dvgObjects.Columns[2].HeaderText = "Grad";
+                dvgObjects.Columns[3].HeaderText = "Ulica";
+                dvgObjects.Columns[4].HeaderText = "Tip Objekta";
+                dvgObjects.Columns[5].HeaderText = "Senzor";
+                dvgObjects.Columns[6].HeaderText = "Korisnik";
+                dvgObjects.Columns[7].HeaderText = "Predviđena potrošnja";
             }
-            dvgObjects.Columns[1].HeaderText = "Ime";
-            dvgObjects.Columns[2].HeaderText = "Grad";
-            dvgObjects.Columns[3].HeaderText = "Ulica";
-            dvgObjects.Columns[4].HeaderText = "Tip Objekta";
-            dvgObjects.Columns[5].HeaderText = "Senzor";
-            dvgObjects.Columns[6].HeaderText = "Korisnik";
-            dvgObjects.Columns[7].HeaderText = "Predviđena potrošnja";
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {

@@ -33,11 +33,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.korisnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.objektiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.objectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRemoveObj = new System.Windows.Forms.ToolStripMenuItem();
-            this.senzoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajUkloniToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSensors = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,8 +61,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.korisnikToolStripMenuItem,
-            this.objektiToolStripMenuItem,
-            this.korisniciToolStripMenuItem});
+            this.objectToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(853, 24);
@@ -86,41 +83,27 @@
             this.btnLogOut.Text = "Odjava";
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // objektiToolStripMenuItem
+            // objectToolStripMenuItem
             // 
-            this.objektiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.objectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddRemoveObj,
-            this.senzoriToolStripMenuItem});
-            this.objektiToolStripMenuItem.Name = "objektiToolStripMenuItem";
-            this.objektiToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.objektiToolStripMenuItem.Text = "Objekti";
+            this.btnSensors});
+            this.objectToolStripMenuItem.Name = "objectToolStripMenuItem";
+            this.objectToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.objectToolStripMenuItem.Text = "Objekti";
             // 
             // btnAddRemoveObj
             // 
             this.btnAddRemoveObj.Name = "btnAddRemoveObj";
-            this.btnAddRemoveObj.Size = new System.Drawing.Size(144, 22);
+            this.btnAddRemoveObj.Size = new System.Drawing.Size(180, 22);
             this.btnAddRemoveObj.Text = "Dodaj/Ukloni";
             this.btnAddRemoveObj.Click += new System.EventHandler(this.btnAddRemoveObj_Click);
             // 
-            // senzoriToolStripMenuItem
+            // btnSensors
             // 
-            this.senzoriToolStripMenuItem.Name = "senzoriToolStripMenuItem";
-            this.senzoriToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.senzoriToolStripMenuItem.Text = "Senzori";
-            // 
-            // korisniciToolStripMenuItem
-            // 
-            this.korisniciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajUkloniToolStripMenuItem1});
-            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.korisniciToolStripMenuItem.Text = "Korisnici";
-            // 
-            // dodajUkloniToolStripMenuItem1
-            // 
-            this.dodajUkloniToolStripMenuItem1.Name = "dodajUkloniToolStripMenuItem1";
-            this.dodajUkloniToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
-            this.dodajUkloniToolStripMenuItem1.Text = "Dodaj/Ukloni";
+            this.btnSensors.Name = "btnSensors";
+            this.btnSensors.Size = new System.Drawing.Size(180, 22);
+            this.btnSensors.Text = "Senzori";
             // 
             // label1
             // 
@@ -276,11 +259,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem korisnikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnLogOut;
-        private System.Windows.Forms.ToolStripMenuItem objektiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem objectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnAddRemoveObj;
-        private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem senzoriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajUkloniToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem btnSensors;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dvgObjects;
         private System.Windows.Forms.Label label3;
