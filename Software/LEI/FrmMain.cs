@@ -35,8 +35,8 @@ namespace LEI
             LoadData();
             reloadTimer.Tick += new EventHandler(RealodTimerEventObject);
 
-            // Sets the timer interval to 5 seconds.
-            reloadTimer.Interval = 5000;
+            // Sets the timer interval to 15 seconds.
+            reloadTimer.Interval = 15000;
             reloadTimer.Start();
         }
 
@@ -82,7 +82,7 @@ namespace LEI
 
             foreach (LEICore.Objects.Object obj in objlist)
             {
-                consumptionData = consumptionRepository.GetConsumptionsByObject(obj.Id);
+                consumptionData = consumptionRepository.GetConsumptionsByObject(obj.Id, false);
                 if (consumptionData != null) {
                     foreach (ConsumptionData cdata in consumptionData) {
                         if (cdata.Date.Year == timenow.Year && cdata.Date.Month == timenow.Month &&

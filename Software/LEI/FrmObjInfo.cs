@@ -42,11 +42,11 @@ namespace LEI
         }
         private void LoadDvg() {
             consumptionDataWater =
-                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Water);
+                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Water, false);
             consumptionDataGas =
-                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Gas);
+                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Gas, false);
             consumptionDataElectric =
-                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Electricity);
+                consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Electricity, false);
             dvgWater.DataSource = consumptionDataWater;
             dvgGas.DataSource = consumptionDataGas;
             dvgElectric.DataSource = consumptionDataElectric;
