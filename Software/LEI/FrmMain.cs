@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -100,7 +101,7 @@ namespace LEI
 
             lblWaterConsumption.Text = waterconsumption.ToString() + " kWh";
             lblGasConsumption.Text = gasconsumption.ToString() + " L/s";
-            lblElectrConsumption.Text = electryconsumption.ToString() + " L/s";
+            lblElectrConsumption.Text = electryconsumption.ToString() + "";
         }
 
         private void RealodTimerEventObject 
@@ -117,6 +118,12 @@ namespace LEI
         {
             FrmObjControl Frmobj = new FrmObjControl(user);
             Frmobj.ShowDialog();
+        }
+
+        private void dvgObjects_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FrmObjInfo frminfo = new FrmObjInfo(objlist[e.RowIndex]);
+            frminfo.ShowDialog();            
         }
     }
 }

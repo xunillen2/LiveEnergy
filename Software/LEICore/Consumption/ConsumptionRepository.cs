@@ -52,7 +52,14 @@ namespace LEICore.Consumption
         /// </returns>
         public List<ConsumptionData> GetConsumptionsByObject(int object_id) =>
             GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id}");
-
+        /// <summary>
+        /// Gets Sensor with specified id
+        /// </summary>
+        /// <returns>
+        /// returns User
+        /// </returns>
+        public List<ConsumptionData> GetConsumptionsByObjAndType(int object_id, consumptionType consumptiontype) =>
+            GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id} AND ConsumptionType = {(int)consumptiontype}");
         public void InsertConsumption(ConsumptionData consumptionData)
         {
             string sql = $"INSERT INTO Consumptions (Id, ConsumptionType, ConsumptionValue, Date, ObjectID) VALUES ({consumptionData.Id}, {(int)consumptionData.ConsumptionType}, '{consumptionData.ConsumptionValue.ToString().Replace(",", ".")}' , '{consumptionData.Date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")}', {consumptionData.Object.Id})";

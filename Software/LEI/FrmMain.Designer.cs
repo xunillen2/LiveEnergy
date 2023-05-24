@@ -42,13 +42,13 @@
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblElectrConsumption = new System.Windows.Forms.Label();
             this.lblWaterConsumption = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblGasConsumption = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgObjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -141,6 +141,7 @@
             this.dvgObjects.Name = "dvgObjects";
             this.dvgObjects.Size = new System.Drawing.Size(252, 381);
             this.dvgObjects.TabIndex = 4;
+            this.dvgObjects.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgObjects_CellContentDoubleClick);
             // 
             // label3
             // 
@@ -162,16 +163,6 @@
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Status";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::LEI.Properties.Resources.ok_status;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 69);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 173);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -238,6 +229,16 @@
             this.label9.Size = new System.Drawing.Size(329, 16);
             this.label9.TabIndex = 12;
             this.label9.Text = "Generalna sveukupna potrošnja plina (po min):";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::LEI.Properties.Resources.ok_status;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 69);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(252, 173);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmMain
             // 
