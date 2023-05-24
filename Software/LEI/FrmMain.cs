@@ -57,18 +57,16 @@ namespace LEI
                 dvgObjects.Columns["City"].DisplayIndex = 1;
                 dvgObjects.Columns["Street"].DisplayIndex = 2;
                 dvgObjects.Columns["ObjectType"].DisplayIndex = 3;
-                //dvgObjects.Columns["SensorID"].Visible = false;
-                //dvgObjects.Columns["UserID"].Visible = false;
 
-                /*Chart myChart = new Chart();
-                myChart.Series.Add("Data");
-                myChart.Series["Data"].Points.AddXY(0, 2);
-                myChart.Series["Data"].Points.AddXY(1, 5);
-                myChart.Series["Data"].Points.AddXY(2, 6);
-                myChart.Series["Data"].ChartType = SeriesChartType.Line;
+                dvgObjects.Columns["Name"].HeaderText = "Ime";
+                dvgObjects.Columns["City"].HeaderText = "Grad";
+                dvgObjects.Columns["Street"].HeaderText = "Ulica";
+                dvgObjects.Columns["ObjectType"].HeaderText = "Tip Objekta";
 
-
-                this.Controls.Add(myChart);*/
+                dvgObjects.Columns["Sensor"].Visible = false;
+                dvgObjects.Columns["User"].Visible = false;
+                dvgObjects.Columns["Id"].Visible = false;
+                dvgObjects.Columns["PredictedConsumption"].Visible = false;
             }
         }
 
