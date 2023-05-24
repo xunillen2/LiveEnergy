@@ -50,7 +50,7 @@ namespace LEICore.Consumption
         /// <returns>
         /// returns User
         /// </returns>
-        public List<ConsumptionData> GetConsumptionsObject(int object_id) =>
+        public List<ConsumptionData> GetConsumptionsByObject(int object_id) =>
             GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id}");
 
         public void InsertConsumption(ConsumptionData consumptionData)
