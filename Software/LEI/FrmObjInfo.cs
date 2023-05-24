@@ -31,6 +31,7 @@ namespace LEI
         {
             LoadLabels();
             LoadDvg();
+            SetElementStyles();
         }
 
         /* Funkcije za postavljanje user interfacea */
@@ -39,6 +40,15 @@ namespace LEI
             lblCity.Text = obj.City;
             lblStreet.Text = obj.Street;
             lblOwner.Text = obj.User.FirstName + " " + obj.User.LastName;
+        }
+        void SetElementStyles()
+        {
+            dvgWater.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dvgWater.EnableHeadersVisualStyles = true;
+            dvgGas.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dvgGas.EnableHeadersVisualStyles = true;
+            dvgElectric.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dvgElectric.EnableHeadersVisualStyles = true;
         }
         private void LoadDvg() {
             consumptionDataWater =

@@ -23,7 +23,7 @@ namespace LEI
             UserRepository userRepository = new UserRepository();
             User = userRepository.GetUser("admin");
 
-                FrmMain frmMain = new FrmMain(User);
+                LiveEnergy frmMain = new LiveEnergy(User);
                 frmMain.ShowDialog();
                 this.Close();
             }
@@ -46,7 +46,7 @@ namespace LEI
                 if (user != null && user.Password == txtPassword.Text)
                 {
 
-                    FrmMain frmMain = new FrmMain(user);
+                    LiveEnergy frmMain = new LiveEnergy(user);
                     frmMain.ShowDialog();
                     this.Close();
                 }
