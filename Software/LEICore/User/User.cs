@@ -14,10 +14,17 @@ namespace LEICore.Users
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public int Admin { private get; set; }
 
         public override string ToString()
         {
             return FirstName + " " + LastName;
         }
+
+        public bool IsAdmin() { 
+            if (Admin <= 0) return false;
+            return true;
+        }
+
     }
 }

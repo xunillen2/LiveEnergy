@@ -28,6 +28,8 @@ namespace LEICore.Users
             user.Email = reader["Email"].ToString();
             user.Username = reader["Username"].ToString();
             user.Password = reader["Password"].ToString();
+            user.Admin = Convert.ToInt32(reader["IsAdmin"].ToString());
+
 
             return user;
         }
