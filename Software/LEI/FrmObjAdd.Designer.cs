@@ -37,11 +37,16 @@
             this.txtStreet = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.objectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPredicted = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbUsers = new System.Windows.Forms.ComboBox();
+            this.cmbSensors = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.objectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.objectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,17 +55,16 @@
             this.txtCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCity.ForeColor = System.Drawing.Color.White;
-            this.txtCity.Location = new System.Drawing.Point(92, 129);
+            this.txtCity.Location = new System.Drawing.Point(136, 129);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(182, 13);
             this.txtCity.TabIndex = 4;
-            this.txtCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 43);
+            this.label1.Location = new System.Drawing.Point(19, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 5;
@@ -85,7 +89,7 @@
             "Kuća",
             "Zgrada",
             "Industrijski objekt"});
-            this.cmboType.Location = new System.Drawing.Point(92, 96);
+            this.cmboType.Location = new System.Drawing.Point(136, 96);
             this.cmboType.Name = "cmboType";
             this.cmboType.Size = new System.Drawing.Size(182, 21);
             this.cmboType.TabIndex = 7;
@@ -94,7 +98,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 176);
+            this.label3.Location = new System.Drawing.Point(19, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
@@ -105,11 +109,10 @@
             this.txtStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.txtStreet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStreet.ForeColor = System.Drawing.Color.White;
-            this.txtStreet.Location = new System.Drawing.Point(92, 176);
+            this.txtStreet.Location = new System.Drawing.Point(136, 159);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(182, 13);
             this.txtStreet.TabIndex = 8;
-            this.txtStreet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -126,15 +129,10 @@
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(92, 69);
+            this.txtName.Location = new System.Drawing.Point(136, 69);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(182, 13);
             this.txtName.TabIndex = 10;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // objectBindingSource
-            // 
-            this.objectBindingSource.DataSource = typeof(LEICore.Objects.Object);
             // 
             // label5
             // 
@@ -150,7 +148,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(19, 212);
+            this.label6.Location = new System.Drawing.Point(19, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 13);
             this.label6.TabIndex = 14;
@@ -161,11 +159,10 @@
             this.txtPredicted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.txtPredicted.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPredicted.ForeColor = System.Drawing.Color.White;
-            this.txtPredicted.Location = new System.Drawing.Point(136, 212);
+            this.txtPredicted.Location = new System.Drawing.Point(136, 189);
             this.txtPredicted.Name = "txtPredicted";
             this.txtPredicted.Size = new System.Drawing.Size(182, 13);
             this.txtPredicted.TabIndex = 13;
-            this.txtPredicted.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSave
             // 
@@ -177,12 +174,72 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtID
+            // 
+            this.txtID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtID.ForeColor = System.Drawing.Color.White;
+            this.txtID.Location = new System.Drawing.Point(136, 41);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(182, 13);
+            this.txtID.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(19, 253);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Korisnik:";
+            // 
+            // cmbUsers
+            // 
+            this.cmbUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.cmbUsers.ForeColor = System.Drawing.Color.White;
+            this.cmbUsers.FormattingEnabled = true;
+            this.cmbUsers.Location = new System.Drawing.Point(136, 253);
+            this.cmbUsers.Name = "cmbUsers";
+            this.cmbUsers.Size = new System.Drawing.Size(182, 21);
+            this.cmbUsers.TabIndex = 19;
+            // 
+            // cmbSensors
+            // 
+            this.cmbSensors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.cmbSensors.ForeColor = System.Drawing.Color.White;
+            this.cmbSensors.FormattingEnabled = true;
+            this.cmbSensors.Location = new System.Drawing.Point(136, 219);
+            this.cmbSensors.Name = "cmbSensors";
+            this.cmbSensors.Size = new System.Drawing.Size(182, 21);
+            this.cmbSensors.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(19, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Senzor:";
+            // 
+            // objectBindingSource
+            // 
+            this.objectBindingSource.DataSource = typeof(LEICore.Objects.Object);
+            // 
             // FrmObjAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(433, 501);
+            this.Controls.Add(this.cmbSensors);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbUsers);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPredicted);
@@ -195,8 +252,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCity);
+            this.MaximumSize = new System.Drawing.Size(449, 540);
             this.Name = "FrmObjAdd";
             this.Text = "FrmObjAdd";
+            this.Load += new System.EventHandler(this.FrmObjAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.objectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,5 +277,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPredicted;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbUsers;
+        private System.Windows.Forms.ComboBox cmbSensors;
+        private System.Windows.Forms.Label label8;
     }
 }

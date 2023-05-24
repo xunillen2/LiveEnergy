@@ -77,6 +77,9 @@ namespace LEICore.Consumption
             DBReader.CloseConnection();
         }
 
+        public ConsumptionData GetConsumptionMaxId() =>
+            FetchObject($"SELECT * FROM Consumptions WHERE Id = (SELECT MAX(Id) FROM Consumptions)", true);
+
 
         /// <summary>
         /// Gets All Sensors from databases

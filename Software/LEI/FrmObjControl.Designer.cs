@@ -32,12 +32,14 @@
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.LblError = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgObjects)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(330, 397);
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Location = new System.Drawing.Point(250, 397);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 0;
@@ -47,6 +49,8 @@
             // 
             // dvgObjects
             // 
+            this.dvgObjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgObjects.Location = new System.Drawing.Point(12, 12);
             this.dvgObjects.Name = "dvgObjects";
@@ -71,6 +75,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = new System.Drawing.Point(411, 397);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -79,17 +84,29 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnModify
+            // 
+            this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModify.Location = new System.Drawing.Point(331, 397);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.TabIndex = 5;
+            this.btnModify.Text = "Uredi";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
             // FrmObjControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(498, 445);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.LblError);
             this.Controls.Add(this.dvgObjects);
             this.Controls.Add(this.btnRemove);
-            this.MaximumSize = new System.Drawing.Size(514, 484);
+            this.MaximumSize = new System.Drawing.Size(2000, 484);
             this.MinimumSize = new System.Drawing.Size(417, 484);
             this.Name = "FrmObjControl";
             this.Text = "Upravljanje Objektima";
@@ -106,5 +123,6 @@
         private System.Windows.Forms.DataGridView dvgObjects;
         private System.Windows.Forms.Label LblError;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnModify;
     }
 }

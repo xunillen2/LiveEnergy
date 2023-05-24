@@ -32,14 +32,14 @@ namespace LEICore
         {
             SqlCommand command = new SqlCommand(sqlCommand, _connection);
 
-            try
-            {
+           // try
+           // {
                 return command.ExecuteNonQuery();
-            }
-            catch
-            {
-                return 0;
-            }
+            //}
+           // catch
+           // {
+//return 0;
+            //}
         }
     }
 }

@@ -4,6 +4,7 @@ using LEICore.Users;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace LEICore.Objects
 {
@@ -89,6 +90,40 @@ namespace LEICore.Objects
         public Object GetObject(int id) =>
             FetchObject($"SELECT * FROM Objects WHERE Id = {id} ");
 
+        /// <summary>
+        /// Gets Sensor with specified id
+        /// </summary>
+        /// <returns>
+        /// returns User
+        /// </returns>
+        public Object GetObjectMaxId() =>
+            FetchObject($"SELECT * FROM Objects WHERE Id = (SELECT MAX(Id) FROM Objects) ");
+
+        public int InsertObject(LEICore.Objects.Object obj)
+        {
+            int result;
+            string sql = $"INSERT INTO Objects (Id, Name, City, Street, ObjectType, SensorID, UserID, PredictedConsumption) VALUES ({obj.Id}, '{obj.Name}', '{obj.City}' , '{obj.Street}', {(int)obj.ObjectType}, {obj.Sensor.Id}, {obj.User.Id}, {obj.PredictedConsumption})";
+
+
+            DBReader.OpenConnection();
+            result = DBReader.ExecuteCommand(sql);
+            DBReader.CloseConnection();
+
+            return result;
+        }
+
+        public int UpdateObject(LEICore.Objects.Object obj)
+        {
+            int result;
+            string sql = $"UPDATE Objects SET Name = '{obj.Name}', City = '{obj.City}', Street = '{obj.Street}', ObjectType = {(int)obj.ObjectType}, SensorID = {obj.Sensor.Id}, UserID = {obj.User.Id}, PredictedConsumption = {obj.PredictedConsumption} WHERE Id = {obj.Id}";
+
+
+            DBReader.OpenConnection();
+            result = DBReader.ExecuteCommand(sql);
+            DBReader.CloseConnection();
+
+            return result;
+        }
         public int DropObject(int id)
         {
             int statuscode;

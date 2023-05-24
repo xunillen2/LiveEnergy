@@ -14,14 +14,16 @@ namespace LEI
 {
     public partial class FrmLogin : Form
     {
+        public static User User { get; set; }
+
         public FrmLogin()
         {
 
             InitializeComponent();
             UserRepository userRepository = new UserRepository();
-            User user = userRepository.GetUser("mmaric");
+            User = userRepository.GetUser("mmaric");
 
-                FrmMain frmMain = new FrmMain(user);
+                FrmMain frmMain = new FrmMain(User);
                 frmMain.ShowDialog();
                 this.Close();
             }
