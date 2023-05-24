@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace LEICore.Sensors
 {
+    /// <summary>
+    /// Class for managing Sensor database.
+    /// It Contains functions for fetching sensors from db.
+    /// </summary>
     public class SensorRepository
     {
         /// <summary>
-        /// Creates User object 
+        /// Creates Sensor object 
         /// </summary>
         /// <param name="reader"></param>
         /// <returns>
-        /// Returns "Sensor" object with populated Properties from sql reader.
+        /// Returns "Sensor" object with populated Properties from SqlDataReader.
         /// </returns>
         private static Sensor CreateObject(SqlDataReader reader)
         {
@@ -32,7 +36,7 @@ namespace LEICore.Sensors
         /// Gets All Sensors from databases
         /// </summary>
         /// <returns>
-        /// returns List<Sensor>
+        /// Returns List<Sensor>
         /// </returns>
         public List<Sensor> GetSensors()
         {
@@ -57,18 +61,19 @@ namespace LEICore.Sensors
         /// Gets Sensor with specified id
         /// </summary>
         /// <returns>
-        /// returns User
+        /// Returns Sensor object if id exists,
+        /// if not, it returns null.
         /// </returns>
         public Sensor GetSensor(int id) =>
             FetchSensor($"SELECT * FROM Sensors WHERE Id = {id} ");
 
 
         /// <summary>
-        /// Fetchs Sensor with given sql string.
+        /// Fetchs Sensor from database that matches given sql query
         /// </summary>
         /// <param name="sql"></param>
         /// <returns>
-        /// Returns Teacher object if found, null if not.
+        /// Returns Sensor object if found, null if not.
         /// </returns>
         public Sensor FetchSensor(string sql)
         {

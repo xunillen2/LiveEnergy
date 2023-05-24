@@ -26,11 +26,21 @@ namespace LEI
         bool isUpdating = false;
 
 
+        /// <summary>
+        /// Opens Form for Adding Object to DB.
+        /// Empty constructor.
+        /// Used when Adding Object.
+        /// </summary>
         public FrmObjAdd()
         {
             this.Text = "Dodavanje Objekta";
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Sets Form for updating by seting isUpdating and objUpdating.
+        /// </summary>
+        /// <param name="obj"></param>
         public FrmObjAdd(LEICore.Objects.Object obj)
         {
             isUpdating = true;
@@ -46,6 +56,7 @@ namespace LEI
             Sensor sensor = (Sensor)cmbSensors.SelectedItem;
             User user = (User)cmbUsers.SelectedItem;
 
+            // Create Object that will be saved to DB.
             LEICore.Objects.Object obj = new LEICore.Objects.Object
             {
 
@@ -84,7 +95,8 @@ namespace LEI
             if (!isUpdating)
                 LoadId();
             else
-                LoadObjInfo();
+                LoadObjInfo();  // If we are updating Object, populate all textboxes and elements
+                                // with values of given object.
         }
 
         private void LoadObjInfo() {
@@ -96,23 +108,10 @@ namespace LEI
             cmbSensors.SelectedItem = objUpdating.Sensor;
             cmbUsers.SelectedItem = objUpdating.User;
             cmboType.SelectedIndex = (int) objUpdating.ObjectType;
-            /*
-            Id = this.id,
-                Name = txtName.Text,
-                City = txtCity.Text,
-                Street = txtStreet.Text,
-                ObjectType = (objectType)cmboType.SelectedIndex,
-                User = new User
-                {
-                    Id = user.Id
-                },
-                Sensor = new Sensor
-                {
-                    Id = sensor.Id
-                },
-                PredictedConsumption = int.Parse(txtPredicted.Text)*/
         }
 
+
+        // Sets Label TextBox to next avilable id.
         private void LoadId() {
             this.id = ++objectRepository.GetObjectMaxId().Id;
             txtID.Text = this.id.ToString();

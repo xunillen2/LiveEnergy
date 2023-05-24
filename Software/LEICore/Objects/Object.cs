@@ -8,6 +8,13 @@ using LEICore.Sensors;
 
 namespace LEICore.Objects
 {
+    /// <summary>
+    /// Specifies Object class.
+    /// It consists of basic Object parameters:
+    /// Id, Name, City, Street, Objecttype, PredictedConsumption...
+    /// But it also contains Foregin keys to Sensor that is given to Object,
+    /// And User that is owner of building.
+    /// </summary>
     public class Object
     {
         public int Id { get; set; }

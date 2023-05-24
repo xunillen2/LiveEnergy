@@ -14,6 +14,10 @@ namespace LEI
 {
     public partial class FrmLogin : Form
     {
+        /// <summary>
+        /// Definies user that is logged in.
+        /// All other Forms user this to see what user is loged in.
+        /// </summary>
         public static User User { get; set; }
 
         public FrmLogin()

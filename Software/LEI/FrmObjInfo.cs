@@ -21,6 +21,10 @@ namespace LEI
 
         ConsumptionRepository consumptionRepository = new ConsumptionRepository();
 
+        /// <summary>
+        /// Opens Form for Viewing Object info and Consumption data.
+        /// </summary>
+        /// <param name="obj"></param>
         public FrmObjInfo(LEICore.Objects.Object obj)
         {
             this.obj = obj;
@@ -34,7 +38,7 @@ namespace LEI
             SetElementStyles();
         }
 
-        /* Funkcije za postavljanje user interfacea */
+        /* Functions for setting up user interfaces */
         private void LoadLabels() {
             lblObjName.Text = obj.Name;
             lblCity.Text = obj.City;
@@ -50,6 +54,7 @@ namespace LEI
             dvgElectric.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dvgElectric.EnableHeadersVisualStyles = true;
         }
+        /// Populate all Dvgs with data. 
         private void LoadDvg() {
             consumptionDataWater =
                 consumptionRepository.GetConsumptionsByObjAndType(obj.Id, ConsumptionData.consumptionType.Water, false);
@@ -64,8 +69,8 @@ namespace LEI
         }
         private void SetDvgLayout() {
 
-            /* Postavljanje izgleda tablice.
-             Sakrimo nepotrebne stupce i postavljamo pravilan tekst stupaca */
+            /* Seting table Visuals.
+             Hidding uneeded Columns and setting Header Text */
             dvgWater.Columns [0].Visible = dvgGas.Columns [0].Visible = 
                 dvgElectric.Columns [0].Visible = false;
             dvgWater.Columns [1].Visible = dvgGas.Columns [1].Visible =
@@ -86,7 +91,8 @@ namespace LEI
             List<ConsumptionData> consumptionDataGasFiltered = new List<ConsumptionData>();
             List<ConsumptionData> consumptionDataElectricFiltered = new List<ConsumptionData>();
 
-            // Filtar za datum vode
+            // Go through current consumptionData's and match Dates.
+            // If date matches, copy ConsumptionData to new filtered List.
             dvgWater.DataSource = null;
             foreach (ConsumptionData cdata in consumptionDataWater)
             {
@@ -105,6 +111,7 @@ namespace LEI
                     consumptionDataElectricFiltered.Add(cdata);
             }
 
+            // Set filtered Lists as data source
             dvgWater.DataSource = consumptionDataWaterFiltered;
             dvgGas.DataSource = consumptionDataGasFiltered;
             dvgElectric.DataSource = consumptionDataElectricFiltered;
@@ -113,6 +120,7 @@ namespace LEI
 
         private void btnRemoveFilter_Click(object sender, EventArgs e)
         {
+            // Restore data source to origial Lists.
             dvgWater.DataSource = consumptionDataWater;
             dvgGas.DataSource = consumptionDataGas;
             dvgElectric.DataSource = consumptionDataElectric;

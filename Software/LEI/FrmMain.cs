@@ -16,6 +16,13 @@ using LEICore.Users;
 
 namespace LEI
 {
+    /// <summary>
+    /// Main form.
+    /// Displays all avilable objects and options to users.
+    /// It updates every 20s to display current Consumptions of
+    /// all users object.
+    /// For live update of consumption to work, LESensors needs to be running.
+    /// </summary>
     public partial class LiveEnergy : Form
     {
         User user = new User();
@@ -44,12 +51,18 @@ namespace LEI
             SetElementStyles();
 
             // Setup timer
+            // Data is reloaded on every Tick by calling LoadData.
             reloadTimer.Tick += new EventHandler(RealodTimerEventObject);
 
             reloadTimer.Interval = 15000;
             reloadTimer.Start();
         }
 
+        /// <summary>
+        /// Loads All data.
+        /// Populates Dvg with all items (Objects)
+        /// And refreshes labels with proper Consumption text.
+        /// </summary>
         private void LoadData() {
             LoadDvgObjects();
             LoadConsumptionLabels();
@@ -58,6 +71,7 @@ namespace LEI
         private void LoadDvgObjects() {
             ObjectRepository objectRepository = new ObjectRepository();
 
+            // If user is admin, get all objects.
             if (!user.IsAdmin())
                 objlist = objectRepository.GetObjects(user.Id);
             else
@@ -65,6 +79,9 @@ namespace LEI
 
             if (objlist != null && objlist.Count > 0)
             {
+                /* Sets Columns idexes, header text and hides
+                 * Columns that are not needed in this Form.
+                 */
                 dvgObjects.DataSource = objlist;
                 dvgObjects.Columns["Name"].DisplayIndex = 0;
                 dvgObjects.Columns["City"].DisplayIndex = 1;
@@ -83,6 +100,9 @@ namespace LEI
             }
         }
 
+        /// <summary>
+        /// Refreshes text on Consumption labels by going through avilable Objects.
+        /// </summary>
         private void LoadConsumptionLabels() {
             float waterconsumption, gasconsumption, electryconsumption;
             ConsumptionRepository consumptionRepository = new ConsumptionRepository();
@@ -91,6 +111,8 @@ namespace LEI
 
             waterconsumption = gasconsumption = electryconsumption = 0;
 
+            // Go through all loaded object that user has access, see if date is right (to minute),
+            // compare consumptionType and add it to temporary var.
             foreach (LEICore.Objects.Object obj in objlist)
             {
                 consumptionData = consumptionRepository.GetConsumptionsByObject(obj.Id, false);
@@ -110,6 +132,7 @@ namespace LEI
                 }
             }
 
+            // Display Calculated Consumption
             lblWaterConsumption.Text = waterconsumption.ToString() + " L/s";
             lblGasConsumption.Text = gasconsumption.ToString() + " L/s";
             lblElectrConsumption.Text = electryconsumption.ToString() + "kWh";

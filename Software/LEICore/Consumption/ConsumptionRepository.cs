@@ -10,15 +10,21 @@ using static LEICore.Consumption.ConsumptionData;
 
 namespace LEICore.Consumption
 {
+    /// <summary>
+    /// Class for managing Consumption history of Objects.
+    /// It Contains functions for Fetching and Inserting 
+    /// Consumption data from Senzors and Objects to table
+    /// "Consumptions"
+    /// </summary>
     public class ConsumptionRepository
     {
 
         /// <summary>
-        /// Creates User object 
+        /// Creates ConsumptionData object 
         /// </summary>
         /// <param name="reader"></param>
         /// <returns>
-        /// Returns "Sensor" object with populated Properties from sql reader.
+        /// Returns "ConsumptionData" object with populated Properties from SqlDataReader.
         /// </returns>
         private static ConsumptionData CreateObject(SqlDataReader reader, bool loadObject)
         {
@@ -38,30 +44,43 @@ namespace LEICore.Consumption
         }
 
 
+
         /// <summary>
-        /// Gets Sensor with specified id
+        /// Gets All consumption data from all objects in table "Consumptions".
+        /// If loadObject is true, Propertie Object in ConsumptionData will be populated
+        /// with all Objec data. If its false, only Id Propertie of class Object will be populated.
         /// </summary>
+        /// <param name="loadObject"></param>
         /// <returns>
-        /// returns User
+        /// List<ConsumptionData>
         /// </returns>
         public List<ConsumptionData> GetConsumptionsAll(bool loadObject) =>
             GetConsumptions($"SELECT * FROM Consumptions",
                 loadObject);
-
         /// <summary>
-        /// Gets Sensor with specified id
+        /// Gets consumption data from object specified by object_id from table "Consumptions".
+        /// If loadObject is true, Propertie Object in ConsumptionData will be populated
+        /// with all Objec data. If its false, only Id Propertie of class Object will be populated.
         /// </summary>
+        /// <param name="object_id"></param>
+        /// <param name="loadObject"></param>
         /// <returns>
-        /// returns User
+        /// List<ConsumptionData>
         /// </returns>
         public List<ConsumptionData> GetConsumptionsByObject(int object_id, bool loadObject) =>
             GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id}",
                 loadObject);
         /// <summary>
-        /// Gets Sensor with specified id
+        /// Gets consumption data from object specified by object_id from table "Consumptions",
+        /// and match Conumption by given type specified by consumptiontype.
+        /// If loadObject is true, Propertie Object in ConsumptionData will be populated
+        /// with all Objec data. If its false, only Id Propertie of class Object will be populated.
         /// </summary>
+        /// <param name="object_id"></param>
+        /// <param name="consumptiontype"></param>
+        /// <param name="loadObject"></param>
         /// <returns>
-        /// returns User
+        /// List<ConsumptionData>
         /// </returns>
         public List<ConsumptionData> GetConsumptionsByObjAndType(int object_id, consumptionType consumptiontype, bool loadObject) =>
             GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id} AND ConsumptionType = {(int)consumptiontype}",
@@ -82,10 +101,14 @@ namespace LEICore.Consumption
 
 
         /// <summary>
-        /// Gets All Sensors from databases
+        /// Gets all ConsumptionData from database that matches sql query.
+        /// If loadObject is true, Propertie Object in ConsumptionData will be populated
+        /// with all Objec data. If its false, only Id Propertie of class Object will be populated.
         /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="loadObject"></param>
         /// <returns>
-        /// returns List<Sensor>
+        /// List<ConsumptionData>
         /// </returns>
         private List<ConsumptionData> GetConsumptions(string sql, bool loadObject)
         {
@@ -109,11 +132,15 @@ namespace LEICore.Consumption
 
 
         /// <summary>
-        /// Fetchs Sensor with given sql string.
+        /// Gets ConsumptionData from database that matches sql query.
+        /// If loadObject is true, Propertie Object in ConsumptionData will be populated
+        /// with all Objec data. If its false, only Id Propertie of class Object will be populated.
         /// </summary>
         /// <param name="sql"></param>
+        /// <param name="loadObject"></param>
         /// <returns>
-        /// Returns Teacher object if found, null if not.
+        /// ConsumptionData
+        /// null if object does not exist in db.
         /// </returns>
         private ConsumptionData FetchObject(string sql, bool loadObject)
         {

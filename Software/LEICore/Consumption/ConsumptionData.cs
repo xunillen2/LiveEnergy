@@ -2,6 +2,11 @@
 
 namespace LEICore.Consumption
 {
+    /// <summary>
+    /// Specifies Consumption for Objects.
+    /// It contains ID, Consumption Value, Consumption Type and Date.
+    /// and Foregin key Object
+    /// </summary>
     public class ConsumptionData
     {
         public int Id { get; set; }

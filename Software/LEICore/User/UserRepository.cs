@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace LEICore.Users
 {
+    /// <summary>
+    /// Class for managing User database.
+    /// It Contains functions for Fetching Users from database
+    /// </summary>
     public class UserRepository
     {
 
         /// <summary>
-        /// Create User object 
+        /// Creates User object from given SqlDataReader
         /// </summary>
         /// <param name="reader"></param>
         /// <returns>
@@ -19,7 +23,6 @@ namespace LEICore.Users
         /// </returns>
         private static User CreateObject(SqlDataReader reader)
         {
-
             User user = new User();
 
             user.Id = Convert.ToInt32(reader["Id"].ToString());
@@ -36,7 +39,7 @@ namespace LEICore.Users
 
 
         /// <summary>
-        /// Gets All Users from databases
+        /// Gets All Users from database
         /// </summary>
         /// <returns>
         /// returns List<User>
@@ -63,27 +66,30 @@ namespace LEICore.Users
         /// Gets user with specified id
         /// </summary>
         /// <returns>
-        /// returns User
+        /// Returns class User
+        /// Returns null if user with given id is not found
         /// </returns>
         public User GetUser(int id) =>
             FetchUser($"SELECT * FROM Users WHERE Id = {id} ");
 
         /// <summary>
-        /// Gets user with specified email
+        /// Gets user with specified username
         /// </summary>
         /// <returns>
-        /// returns User
+        /// Returns User
+        /// Returns null if user with given username is not found
         /// </returns>
         public User GetUser(string username) =>
             FetchUser($"SELECT * FROM Users WHERE Username = '{username}' ");
 
 
         /// <summary>
-        /// Fetchs Teacher with given sql string.
+        /// Fetchs User from database that matches sql query
         /// </summary>
         /// <param name="sql"></param>
         /// <returns>
-        /// Returns Teacher object if found, null if not.
+        /// Returns User object if found, 
+        /// null if not.
         /// </returns>
         public User FetchUser(string sql)
         {
