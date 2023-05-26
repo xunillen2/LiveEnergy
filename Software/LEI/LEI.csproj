@@ -64,9 +64,11 @@
     </Compile>
     <Compile Include="FrmObjAdd.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FrmObjAdd.Designer.cs">
       <DependentUpon>FrmObjAdd.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FrmObjControl.cs">
       <SubType>Form</SubType>
@@ -90,6 +92,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmObjAdd.resx">
       <DependentUpon>FrmObjAdd.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmObjControl.resx">
       <DependentUpon>FrmObjControl.cs</DependentUpon>

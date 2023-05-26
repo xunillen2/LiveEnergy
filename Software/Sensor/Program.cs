@@ -34,6 +34,10 @@ namespace LESensor
             int tempIdConsumption = 0;
             int maxIdObject = 0;
 
+            /*
+                TODO: Senzori šalju podatke na objekte kojima taj senzor ne pripada.
+                        To treba popravit. Ali za test je ok
+             */
             tempIdConsumption = ++crepo.GetConsumptionMaxId().Id;
             maxIdObject = orepo.GetObjectMaxId().Id;
             while (true)
@@ -51,8 +55,9 @@ namespace LESensor
                     }
                 };
                 tempIdConsumption++;
-                Thread.Sleep(50);
+                Thread.Sleep(5000);
                 crepo.InsertConsumption(cdatanew);
+                Console.WriteLine($"ID: '{cdatanew.Id}', type: '{cdatanew.ConsumptionType}, consumptionvalue: '{cdatanew.ConsumptionValue}', object: {cdatanew.Object.Id}");
             }
 
         }

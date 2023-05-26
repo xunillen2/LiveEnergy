@@ -103,7 +103,6 @@ namespace LEI
             Close();
             
         }
-
         private bool ValidateInput() {
             if (txtCity.Text.Length > 50) {
                 DisplayError("Ime grada ne smije biti veće od 50 znakova");

@@ -273,7 +273,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(449, 540);
             this.Name = "FrmObjAdd";
-            this.Text = "FrmObjAdd";
+            this.Text = "Dodaj/Uredi objekt";
             this.Load += new System.EventHandler(this.FrmObjAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.objectBindingSource)).EndInit();
             this.ResumeLayout(false);

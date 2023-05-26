@@ -46,6 +46,7 @@ namespace LEI
                     LiveEnergy frmMain = new LiveEnergy(user);
                     this.Hide();
                     frmMain.ShowDialog();
+                    this.Close();
                 }
                 else {
                     LblError.Visible = true;
