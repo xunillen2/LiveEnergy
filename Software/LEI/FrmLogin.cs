@@ -69,5 +69,10 @@ namespace LEI
                 LblError.Visible = false;
             }
         }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
