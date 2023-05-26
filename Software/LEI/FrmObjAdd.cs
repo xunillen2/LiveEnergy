@@ -83,11 +83,17 @@ namespace LEI
 
             if (!isUpdating)
             {
-                objectRepository.InsertObject(obj);
+                if (objectRepository.InsertObject(obj) == 0)
+                {
+                    DisplayError("Greška prilikom dodavanja objekta u DB");
+                }
             }
             else
             {
-                objectRepository.UpdateObject(obj);
+                if (objectRepository.UpdateObject(obj) == 0)
+                {
+                    DisplayError("Greška prilikom ažuriranja objekta unutar DBa");
+                }
             }
 
             Close();
