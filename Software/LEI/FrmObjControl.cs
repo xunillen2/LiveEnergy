@@ -22,6 +22,7 @@ namespace LEI
     {
         User user = new User();
         ObjectRepository objectRepository = new ObjectRepository();
+        ConsumptionRepository consumptionRepository = new ConsumptionRepository();
         List<LEICore.Objects.Object> objectList = new List<LEICore.Objects.Object>();
 
         public FrmObjControl(User user)
@@ -82,6 +83,7 @@ namespace LEI
 
                 if (selectedObject != null)
                 {
+                    consumptionRepository.DropConsumptions(selectedObject.Id);
                     if (objectRepository.DropObject(selectedObject.Id) == 1)
                     {
                         txtSearch.Text = "";    //Clear filter

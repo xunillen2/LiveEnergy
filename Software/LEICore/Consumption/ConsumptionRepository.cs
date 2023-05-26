@@ -86,6 +86,14 @@ namespace LEICore.Consumption
             GetConsumptions($"SELECT * FROM Consumptions WHERE ObjectID = {object_id} AND ConsumptionType = {(int)consumptiontype}",
                 loadObject);
 
+        /// <summary>
+        /// Inserts given Consumption in "Consumptions" table.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>
+        /// Updated row count on success (>=0)
+        /// 0 if failed
+        /// </returns>
         public void InsertConsumption(ConsumptionData consumptionData)
         {
             string sql = $"INSERT INTO Consumptions (Id, ConsumptionType, ConsumptionValue, Date, ObjectID) VALUES ({consumptionData.Id}, {(int)consumptionData.ConsumptionType}, '{consumptionData.ConsumptionValue.ToString().Replace(",", ".")}' , '{consumptionData.Date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")}', {consumptionData.Object.Id})";
@@ -96,9 +104,35 @@ namespace LEICore.Consumption
             DBReader.CloseConnection();
         }
 
+        /// <summary>
+        /// Gets object with max id of consumption row in "Consumption" table
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>
+        /// ConsumptionData
+        /// </returns>
         public ConsumptionData GetConsumptionMaxId() =>
             FetchObject($"SELECT * FROM Consumptions WHERE Id = (SELECT MAX(Id) FROM Consumptions)", true);
+        
+        /// <summary>
+        /// Drops all consumption data of specific object.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Updated row count on success (>=0)
+        /// 0 if failed
+        /// </returns>
+        public int DropConsumptions(int object_id)
+        {
+            int statuscode;
+            string sql = $"DELETE FROM Consumptions WHERE ObjectID = {object_id}";
 
+            DBReader.OpenConnection();
+            statuscode = DBReader.ExecuteCommand(sql);
+            DBReader.CloseConnection();
+
+            return statuscode;
+        }
 
         /// <summary>
         /// Gets all ConsumptionData from database that matches sql query.

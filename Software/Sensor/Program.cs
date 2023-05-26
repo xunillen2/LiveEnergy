@@ -37,6 +37,9 @@ namespace LESensor
             /*
                 TODO: Senzori šalju podatke na objekte kojima taj senzor ne pripada.
                         To treba popravit. Ali za test je ok
+                TODO2: Ako imamo objekte 1, 2, 3, 4. Uklonimo 3, ostaju 1,2 i 4.
+                        Senzor će slati i na 3 zato jer dobiva da je maximum 4 i ne pazi dal ima rupa.
+                        U pravom svjetu to se ne bi dogodilo jer svaki senzor je pridružen kući.
              */
             tempIdConsumption = ++crepo.GetConsumptionMaxId().Id;
             maxIdObject = orepo.GetObjectMaxId().Id;
@@ -50,7 +53,7 @@ namespace LESensor
                     Date = DateTime.Now,
                     Object = new LEICore.Objects.Object
                     {
-                        Id = rnd.Next(0, maxIdObject),
+                        Id = rnd.Next(0, maxIdObject+1),
 
                     }
                 };

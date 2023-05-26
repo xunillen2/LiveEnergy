@@ -40,7 +40,6 @@
             this.btnLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.objectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRemoveObj = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSensors = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.dvgObjects = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -87,15 +86,14 @@
             // btnLogOut
             // 
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(111, 22);
+            this.btnLogOut.Size = new System.Drawing.Size(180, 22);
             this.btnLogOut.Text = "Odjava";
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // objectToolStripMenuItem
             // 
             this.objectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddRemoveObj,
-            this.btnSensors});
+            this.btnAddRemoveObj});
             this.objectToolStripMenuItem.Name = "objectToolStripMenuItem";
             this.objectToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.objectToolStripMenuItem.Text = "Objekti";
@@ -103,15 +101,9 @@
             // btnAddRemoveObj
             // 
             this.btnAddRemoveObj.Name = "btnAddRemoveObj";
-            this.btnAddRemoveObj.Size = new System.Drawing.Size(144, 22);
+            this.btnAddRemoveObj.Size = new System.Drawing.Size(180, 22);
             this.btnAddRemoveObj.Text = "Dodaj/Ukloni";
             this.btnAddRemoveObj.Click += new System.EventHandler(this.btnAddRemoveObj_Click);
-            // 
-            // btnSensors
-            // 
-            this.btnSensors.Name = "btnSensors";
-            this.btnSensors.Size = new System.Drawing.Size(144, 22);
-            this.btnSensors.Text = "Senzori";
             // 
             // label1
             // 
@@ -330,7 +322,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnLogOut;
         private System.Windows.Forms.ToolStripMenuItem objectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnAddRemoveObj;
-        private System.Windows.Forms.ToolStripMenuItem btnSensors;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dvgObjects;
         private System.Windows.Forms.Label label3;

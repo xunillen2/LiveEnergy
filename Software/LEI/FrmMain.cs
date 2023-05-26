@@ -43,7 +43,7 @@ namespace LEI
             if (!user.IsAdmin())
             {
                 btnAddRemoveObj.Enabled = false;
-                btnSensors.Enabled= false;
+                //btnSensors.Enabled= false;
             }
 
             SetUsername();
