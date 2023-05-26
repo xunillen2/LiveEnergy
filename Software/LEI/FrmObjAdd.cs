@@ -24,6 +24,7 @@ namespace LEI
 
         int id;
         bool isUpdating = false;
+        int predictedConsumption;
 
 
         /// <summary>
@@ -55,13 +56,10 @@ namespace LEI
         {
             Sensor sensor = (Sensor)cmbSensors.SelectedItem;
             User user = (User)cmbUsers.SelectedItem;
-            int predictedConsumption;
 
-            // Try and parse inputed number. If it fails, return from function
-            // and display error message.
-            if (!int.TryParse(txtPredicted.Text, out predictedConsumption))
+            // If validation fails, return
+            if(!ValidateInput())
             {
-                DisplayError("Unesen broj nije u valjanom formatu");
                 return;
             }
 
@@ -94,6 +92,31 @@ namespace LEI
 
             Close();
             
+        }
+
+        private bool ValidateInput() {
+            if (txtCity.Text.Length > 50) {
+                DisplayError("Ime grada ne smije biti veće od 50 znakova");
+                return false;
+            }
+            else if (txtName.Text.Length > 50)
+            {
+                DisplayError("Ime Objekta ne smije biti veće od 40 znakova");
+                return false;
+            }
+            else if (txtStreet.Text.Length > 50)
+            {
+                DisplayError("Ime Ulice ne smije biti veće od 40 znakova");
+                return false;
+            }
+            // Try and parse inputed number. If it fails, return from function
+            // and display error message.
+            if (!int.TryParse(txtPredicted.Text, out predictedConsumption))
+            {
+                DisplayError("Unesen broj nije u valjanom formatu");
+                return false;
+            }
+            return true;
         }
 
         private void FrmObjAdd_Load(object sender, EventArgs e)
