@@ -22,15 +22,8 @@ namespace LEI
 
         public FrmLogin()
         {
-
             InitializeComponent();
-            UserRepository userRepository = new UserRepository();
-            User = userRepository.GetUser("admin");
-
-                LiveEnergy frmMain = new LiveEnergy(User);
-                frmMain.ShowDialog();
-                this.Close();
-            }
+        }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -51,8 +44,8 @@ namespace LEI
                 {
 
                     LiveEnergy frmMain = new LiveEnergy(user);
+                    this.Hide();
                     frmMain.ShowDialog();
-                    this.Close();
                 }
                 else {
                     LblError.Visible = true;

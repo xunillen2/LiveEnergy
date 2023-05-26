@@ -141,7 +141,7 @@
             this.MaximumSize = new System.Drawing.Size(416, 800);
             this.MinimumSize = new System.Drawing.Size(416, 800);
             this.Name = "FrmLogin";
-            this.Text = "Form1";
+            this.Text = "Prijava";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
