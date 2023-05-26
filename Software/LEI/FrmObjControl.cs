@@ -110,7 +110,7 @@ namespace LEI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmObjAdd frmObjAdd = new FrmObjAdd();
+            FrmObjAdd frmObjAdd = new FrmObjAdd(objectList);
             frmObjAdd.ShowDialog();
             txtSearch.Text = "";    // Clear filter
             LoadData();             // Reload data
@@ -125,7 +125,7 @@ namespace LEI
 
                 if (selectedObject != null)
                 {
-                    FrmObjAdd frmObjAdd = new FrmObjAdd(selectedObject);
+                    FrmObjAdd frmObjAdd = new FrmObjAdd(selectedObject, objectList);
                     frmObjAdd.ShowDialog();
                 }
             }

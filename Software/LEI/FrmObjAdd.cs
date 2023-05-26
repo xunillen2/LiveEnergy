@@ -21,6 +21,8 @@ namespace LEI
         UserRepository userRepository = new UserRepository();
         SensorRepository sensorRepository = new SensorRepository();
         LEICore.Objects.Object objUpdating = new LEICore.Objects.Object();
+        List<LEICore.Objects.Object> objectList = new List<LEICore.Objects.Object>();   // Temporary solution for getting used sensors.
+                                                                                        // Send object list and get used sensors from that list.
 
         int id;
         bool isUpdating = false;
@@ -31,9 +33,10 @@ namespace LEI
         /// Empty constructor.
         /// Used when Adding Object.
         /// </summary>
-        public FrmObjAdd()
+        public FrmObjAdd(List<LEICore.Objects.Object> objectList)
         {
             this.Text = "Dodavanje Objekta";
+            this.objectList = objectList;
             InitializeComponent();
         }
 
@@ -41,10 +44,11 @@ namespace LEI
         /// Sets Form for updating by seting isUpdating and objUpdating.
         /// </summary>
         /// <param name="obj"></param>
-        public FrmObjAdd(LEICore.Objects.Object obj)
+        public FrmObjAdd(LEICore.Objects.Object obj, List<LEICore.Objects.Object> objectList)
         {
             isUpdating = true;
             this.objUpdating = obj;
+            this.objectList = objectList;
             this.Text = "Ažuriranje Objekta";
             InitializeComponent();
         }
@@ -137,10 +141,30 @@ namespace LEI
         private void LoadSensors()
         {
             List<Sensor> sensors = sensorRepository.GetSensors();
+            List<Sensor> sensorsunused = new List<Sensor>();
 
-            if (sensors != null)
+            if (sensors != null && objectList != null)
             {
-                cmbSensors.DataSource = sensors;
+                // Temporary fix for geting used sensors.
+                foreach (Sensor sensor in sensors)
+                {
+                    bool ishit = false;
+                    foreach (LEICore.Objects.Object obj in objectList)
+                    {
+                        if (obj.Sensor.Id == sensor.Id)
+                        {
+                            ishit = true;
+                            break;
+                        }
+                    }
+                    if (!ishit)
+                        sensorsunused.Add(sensor);
+                }
+                if(isUpdating)
+                {
+                    sensorsunused.Add(objUpdating.Sensor);
+                }
+                cmbSensors.DataSource = sensorsunused;
             }
         }
 
